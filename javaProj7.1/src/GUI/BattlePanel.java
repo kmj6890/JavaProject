@@ -31,6 +31,16 @@ public class BattlePanel extends JPanel {
 
     public BattlePanel(MainFrame frame) {
         setLayout(null); // 절대 위치
+        setFocusable(true); // 키 입력 받도록 설정
+        
+        // 키 바인딩 추가
+        getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('i'), "openStatus");
+        getActionMap().put("openStatus", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new StatusDialog(frame, player).setVisible(true);
+            }
+        });
 
         backgroundImage = new ImageIcon("img/Blue_Nebula_08-1024x1024.png").getImage(); // 경로는 실제 배경 이미지 파일명에 맞게 수정
 

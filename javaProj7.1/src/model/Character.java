@@ -38,6 +38,10 @@ public abstract class Character {
 		return def;
 	}
 	
+	public float getcrit() {
+		return critRate;
+	}
+	
 	public void hpup(int hp) {
 		this.hp +=hp;
 	}
